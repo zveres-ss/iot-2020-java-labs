@@ -3,6 +3,8 @@ package ua.lviv.iot.transportation.manager;
 import java.util.LinkedList;
 import java.util.List;
 
+import ua.lviv.iot.transportation.manager.TransportationManagerUtils.BusSorterByCapacity;
+import ua.lviv.iot.transportation.manager.TransportationManagerUtils.BusSorterByProducer;
 import ua.lviv.iot.transportation.model.AbstractVehicle;
 
 public class TransportationManager {
@@ -18,6 +20,12 @@ public class TransportationManager {
     }
 
     public List<AbstractVehicle> findWithCapacityGreaterThan(int capacity) {
+        
+        TransportationManagerUtils.BusSorterByCapacity sorter = new BusSorterByCapacity();
+        
+        TransportationManagerUtils utils = new TransportationManagerUtils();
+        TransportationManagerUtils.BusSorterByProducer producerSorter = utils.new BusSorterByProducer();
+        
         
         List<AbstractVehicle> result = new LinkedList<>();
         for (AbstractVehicle transport : transports) {

@@ -15,8 +15,8 @@ public abstract class BaseTransportationManagerTest {
     @BeforeEach
     public void createBuses() {
         buses = new LinkedList<AbstractVehicle>();
-        buses.add(new Bus(50));
-        buses.add(new Bus(100));
-        buses.add(new Bus(6));
+        buses.add(new Bus(50, null));
+        buses.add(new Bus(100, null));
+        buses.add(new Bus(6, null));
     }
 }

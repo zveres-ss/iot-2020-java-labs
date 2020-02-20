@@ -31,14 +31,16 @@ public class TransportationManager {
         return result;
     }
 
-    public List<AbstractVehicle> findBy(String producer) {
+    public List<AbstractVehicle> findBy(final String producer) {
+
         List<AbstractVehicle> result = new LinkedList<>();
 
         for (AbstractVehicle transport : transports) {
             String transportProducer = transport.getProducer();
 
-            if (transportProducer == null)
+            if (transportProducer == null) {
                 continue;
+            }
 
             if (transportProducer.equals(producer)) {
                 result.add(transport);
@@ -63,24 +65,13 @@ public class TransportationManager {
         return result;
     }
 
-    public List<AbstractVehicle> findByWithException(String producer) 
+    public List<AbstractVehicle> findByWithException(String producer)
             throws TransportationException, NullPointerException {
-        
+
         if (producer == null)
             throw new NullPointerException();
-        
+
         throw new TransportationException(new RuntimeException());
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
